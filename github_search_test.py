@@ -32,7 +32,7 @@ class GithubSearchTest(unittest.TestCase):
         search_box = driver.find_element_by_name("q")
         search_box.send_keys("?*#^^%")
         search_box.send_keys(Keys.RETURN)
-        #assert "Your query contains a character that is ignored"  in driver.page_source
+        ##assert "Your query contains a character that is ignored"  in driver.page_source
 
 
     def tearDown(self):
