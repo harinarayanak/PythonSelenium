@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 class GithubWatchRepoTest(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.PhantomJS()
+        self.driver = webdriver.Chrome('./chromedriver.exe')
         self.base_url = "https://github.com"
 
 
