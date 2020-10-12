@@ -2,6 +2,8 @@ import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 class GithubSearchTest(unittest.TestCase):
 
@@ -13,11 +15,8 @@ class GithubSearchTest(unittest.TestCase):
     def test_github_repo_search_without_criteria(self):
         driver = self.driver
         driver.get(self.base_url)
+        time.sleep(10)
         search_box = driver.find_element_by_name("q")
-        driver.implicitly_wait(10)
-        search_box.is_displayed()
-        search_box.is_enabled()
-        print("Element is visible? " + str(search_box.is_displayed()))
         search_box.send_keys(Keys.RETURN)
         #assert "Search more than" in driver.page_source
 
@@ -25,11 +24,8 @@ class GithubSearchTest(unittest.TestCase):
     def test_github_repo_search_for_selenium(self):
         driver = self.driver
         driver.get(self.base_url)
+        time.sleep(10)
         search_box = driver.find_element_by_name("q")
-        driver.implicitly_wait(10)
-        search_box.is_displayed()
-        search_box.is_enabled()
-        print("Element is visible? " + str(search_box.is_displayed()))
         search_box.send_keys("selenium")
         search_box.send_keys(Keys.RETURN)
         #assert "We’ve found" in driver.page_source
@@ -38,11 +34,8 @@ class GithubSearchTest(unittest.TestCase):
     def test_github_repo_search_with_invalid_string(self):
         driver = self.driver
         driver.get(self.base_url)
+        time.sleep(10)
         search_box = driver.find_element_by_name("q")
-        driver.implicitly_wait(10)
-        search_box.is_displayed()
-        search_box.is_enabled()
-        print("Element is visible? " + str(search_box.is_displayed()))
         search_box.send_keys("?*#^^%")
         search_box.send_keys(Keys.RETURN)
         #assert "Your query contains a character that is ignored"  in driver.page_source
