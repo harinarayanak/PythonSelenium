@@ -1,3 +1,4 @@
+import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -13,6 +14,7 @@ class GithubSearchTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url)
         search_box = driver.find_element_by_name("q")
+        time.sleep(3)
         search_box.send_keys(Keys.RETURN)
         #assert "Search more than" in driver.page_source
 
@@ -21,6 +23,7 @@ class GithubSearchTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url)
         search_box = driver.find_element_by_name("q")
+        time.sleep(3)
         search_box.send_keys("selenium")
         search_box.send_keys(Keys.RETURN)
         #assert "We’ve found" in driver.page_source
@@ -30,9 +33,10 @@ class GithubSearchTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url)
         search_box = driver.find_element_by_name("q")
+        time.sleep(3)
         search_box.send_keys("?*#^^%")
         search_box.send_keys(Keys.RETURN)
-        ##assert "Your query contains a character that is ignored"  in driver.page_source
+        #assert "Your query contains a character that is ignored"  in driver.page_source
 
 
     def tearDown(self):
