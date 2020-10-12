@@ -9,13 +9,14 @@ class GithubSearchTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome('./chromedriver.exe')
+        self.driver.implicitly_wait(30)
+        self.driver.maximize_window()
         self.base_url = "https://github.com"
-
 
     def test_github_repo_search_without_criteria(self):
         driver = self.driver
         driver.get(self.base_url)
-        time.sleep(10)
+        self.driver.implicitly_wait(30)
         search_box = driver.find_element_by_name("q")
         search_box.send_keys(Keys.RETURN)
         #assert "Search more than" in driver.page_source
@@ -24,7 +25,7 @@ class GithubSearchTest(unittest.TestCase):
     def test_github_repo_search_for_selenium(self):
         driver = self.driver
         driver.get(self.base_url)
-        time.sleep(10)
+        self.driver.implicitly_wait(30)
         search_box = driver.find_element_by_name("q")
         search_box.send_keys("selenium")
         search_box.send_keys(Keys.RETURN)
@@ -34,7 +35,7 @@ class GithubSearchTest(unittest.TestCase):
     def test_github_repo_search_with_invalid_string(self):
         driver = self.driver
         driver.get(self.base_url)
-        time.sleep(10)
+        self.driver.implicitly_wait(30)
         search_box = driver.find_element_by_name("q")
         search_box.send_keys("?*#^^%")
         search_box.send_keys(Keys.RETURN)
